@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommender</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212; /* Dark background */
+            color: #e0e0e0; /* Light text */
+        }
+        nav, footer {
+            background-color: #1e1e1e; /* Slightly lighter dark shade for contrast */
+            padding: 1rem 0;
+            text-align: center;
+        }
+        nav ul, footer ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li a, footer ul li a {
+            color: #81c784; /* Green accent for links */
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        nav ul li a:hover, footer ul li a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: #252525; /* Dark container background */
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+        }
+        .input-group {
+            margin-bottom: 1rem;
+        }
+        .button-primary {
+            background-color: #81c784; /* Matching green accent for buttons */
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            color: #252525; /* Dark text for contrast on light button */
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .button-primary:hover {
+            background-color: #6fb174; /* Darker shade of green on hover */
+        }
+        .recommendations {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="container-fluid">
+        <ul>
+            <li><strong>Movie Recommender</strong></li>
+        </ul>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#" role="button">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <h1>Welcome to the Movie Recommendation System</h1>
+        <p>Find your next movie to watch based on your preferences.</p>
+        <form action="/" method="post">
+            <div class="input-group">
+                <input type="text" name="genre" placeholder="Enter preferred genre" required class="input" style="color: #121212; background-color: #e0e0e0;">
+            </div>
+            <div class="input-group">
+                <input type="number" step="0.1" name="rating" placeholder="Enter minimum rating" required class="input" style="color: #121212; background-color: #e0e0e0;">
+            </div>
+            <button type="submit" class="button-primary">Recommend Movies</button>
+        </form>
+        <div class="recommendations">{{ recommendations|safe }}</div>
+    </main>
+
+    <footer class="container">
+        <small>
+            <a href="#">Privacy Policy</a> • <a href="#">Terms of Service</a>
+        </small>
+    </footer>
+</body>
+</html>
